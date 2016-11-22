@@ -1,3 +1,4 @@
+#!/bin/sh
 reset="\e[0m"
 cyan="\e[0;36m"
 export PS1="\[$cyan\]\u@\h \W\[$reset\]> "
@@ -9,37 +10,55 @@ export CLICOLOR=true
 export LSCOLORS=Exfxcxdxbxegedabagacad
 SSH_ENV="$HOME/.ssh/environment"
 
-function start_agent {
+start_agent () {
 	echo "Initialising new SSH agent..."
 	(umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
 	. "${SSH_ENV}" > /dev/null
 	/usr/bin/ssh-add;
 }
-runagent=true
-if [ "${SSH_AUTH_SOCK}" = "" ] ; then
-	runagent="true"
+check_auth_sock () {
+	if [ "${SSH_AUTH_SOCK}" = "" ] ; then
+		echo "false"
+	else
+		case "${SSH_AUTH_SOCK}" in
+			/*)
+				if [ -S "${SSH_AUTH_SOCK}" ] ; then
+					echo "true"
+				else
+					echo "false"
+				fi
+				;;
+			*)
+				echo "true"
+				;;
+		esac
+
+	fi
+}
+check_auth_file () {
+	retval="false"
+	if [ -f "${SSH_ENV}" ]; then
+		. "${SSH_ENV}" > /dev/null
+		ps -auxwww | grep ${SSH_AGENT_PID} | grep ssh-agent$ >/dev/null && retval="true"
+	fi
+	echo "${retval}"
+}
+runagent="false"
+AUTHSOCK="$(check_auth_sock)"
+FILE="$(check_auth_file)"
+echo "authsock="${AUTHSOCK}""
+echo "file="${FILE}""
+if [ "${FILE}" = "true" -o "${AUTHSOCK}" = "true" ] ; then
+	runagent="false"
 else
-	case "${SSH_AUTH_SOCK}" in
-		/*)
-			if [ -f "${SSH_AUTH_SOCK}" ] ; then
-				runagent="false"
-			else
-				runagent="true"
-			fi
-			;;
-		*)	
-			runagent="false"
-			;;
-	esac
+	runagent="true"
 fi
 if [ "${runagent}" = "true" ] ; then
 	# Source SSH settings, if applicable
-
-	if [ -f "${SSH_ENV}" ]; then
-		. "${SSH_ENV}" > /dev/null
-		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || start_agent
-	else
-		start_agent;
-	fi
+	start_agent;
 fi
+
+
+
+
 ysync
