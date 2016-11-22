@@ -2,6 +2,7 @@
 curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
 /tmp/yadm clone https://github.com/heliocentric/dotfiles.git
 /tmp/yadm reset --hard HEAD
+PATH="${HOME}/bin:${PATH}"
 OSNAME="$(uname -s)"
 case "${OSNAME}" in
 	FreeBSD)
@@ -13,4 +14,5 @@ case "${OSNAME}" in
 		;;
 
 esac
-./bin/ysync
+ysync
+psync
