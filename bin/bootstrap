@@ -2,8 +2,6 @@
 curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
 /tmp/yadm clone https://github.com/heliocentric/dotfiles.git
 /tmp/yadm reset --hard HEAD
-./bin/yadm submodule init
-./bin/yadm submodule update
 OSNAME="$(uname -s)"
 case "${OSNAME}" in
 	FreeBSD)
@@ -15,4 +13,4 @@ case "${OSNAME}" in
 		;;
 
 esac
-sudo puppet apply --modulepath=~/puppet-workstation/modules ~/puppet-workstation
+./bin/ysync

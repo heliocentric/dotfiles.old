@@ -1,3 +1,4 @@
 #!/bin/sh
-
+yadm add ~/bin
+yadm add ~/.vim
 yadm add $(yadm list) && yadm commit

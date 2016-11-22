@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo puppet apply --modulepath=~/puppet-workstation/modules ~/puppet-workstation/manifests/main.pp
