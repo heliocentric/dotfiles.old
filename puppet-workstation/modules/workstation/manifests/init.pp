@@ -32,7 +32,7 @@ class workstation() {
 				"firefox",
 				"netbeans",
 				"inkscape",
-				"gimp",
+				"gimp-app",
 				"blender",
 				"quassel",
 				"nmap",
