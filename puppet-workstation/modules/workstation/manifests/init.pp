@@ -28,7 +28,7 @@ class workstation() {
 		"freebsd" : {
 			$packages = [
 				"dwm",
-				"chromium",
+                            	"chromium",
 				"firefox",
 				"netbeans",
 				"inkscape",
