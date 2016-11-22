@@ -7,7 +7,7 @@
 
 # remove /usr/games and /usr/X11R6/bin if you want
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:$HOME/bin:/usr/local/sbin:/usr/local/bin; export PATH
-
+EDITOR=vim
 # Setting TERM is normally done through /etc/ttys.  Do only override
 # if you're sure that you'll never log in via telnet or xterm or a
 # serial line.
