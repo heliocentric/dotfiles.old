@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yadm push origin && yadm push origin --tags
