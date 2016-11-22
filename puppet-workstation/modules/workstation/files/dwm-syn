@@ -1,0 +1,50 @@
+!/usr/local/bin/bash
+. ~/.bashrc
+export JAVAVM_OPTS=-Dawt.useSystemAAFontSettings=off
+export _JAVA_AWT_WM_NONREPARENTING=1
+xautolock -time 10 -locker slock &
+xbindkeys
+novnc
+eval $(ssh-agent)
+ssh-add ~/.ssh/id_rsa
+run_synergy() {
+        while [ 1 != 2 ]
+        do
+                if [ -f "${HOME}/synergy_server" ] ; then
+                        synergyc -1 -f -n "$(hostname -s)" "$(cat ~/synergy_server)"
+                else
+                        if [ -f "${HOME}/.synergy.conf" ] ; then
+                                synergys -f -n "$(hostname -s)"
+                        fi
+                fi
+                sleep 2
+        done
+}
+clock() {
+        while [ 1 != 2 ]
+        do
+                var=""
+                result="$(ifconfig wlan0 | grep ssid | awk '{ print $2; }')"
+                if [ "${result}" != "" ] ; then
+                        var="${var}wlan: ${result} | "
+                fi
+                result="$(mixer | grep vol | awk '{ print $7; }' | cut -d : -f 1)"
+                if [ "${result}" != "" ] ; then
+                        var="${var}volume: ${result} | "
+                fi
+                result="$(apm -l)"
+                if [ "${result}" != "-1" ] ; then
+                        var="${var}batt: ${result} | "
+                fi
+                var="${var}date: $(date)"
+                xsetroot -name $status "${var}"
+                sleep 1
+        done
+}
+clock &
+run_synergy &
+daemon -r x11vnc -forever -shared -repeat
+if [ -f "${HOME}/.dwm-login" ] ; then
+        sh "${HOME}/.dwm-login" &
+fi
+dwm

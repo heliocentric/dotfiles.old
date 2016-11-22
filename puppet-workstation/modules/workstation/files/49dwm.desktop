@@ -1,0 +1,8 @@
+[Desktop Entry] 
+Encoding=UTF-8
+TryExec=/usr/local/bin/dwm-syn
+Exec=dwm-syn
+Icon=/usr/local/share/pixmaps/dwm.png
+Name=DWM
+Comment=A lightweight desktop environment
+

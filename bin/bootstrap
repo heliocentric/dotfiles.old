@@ -7,11 +7,11 @@ curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm 
 OSNAME="$(uname -s)"
 case "${OSNAME}" in
 	FreeBSD)
-		pkg install puppet4
-		pkg install mcollective
+		sudo pkg install puppet4
+		sudo pkg install mcollective
 		;;
 	Linux)
-		yum install puppet-agent
+		sudo yum install puppet-agent
 		;;
 
 esac
