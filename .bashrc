@@ -17,23 +17,21 @@ start_agent () {
 	/usr/bin/ssh-add;
 }
 check_auth_sock () {
-	if [ "${SSH_AUTH_SOCK}" = "" ] ; then
-		echo "false"
-	else
+	retval="false"
+	if [ "${SSH_AUTH_SOCK}" != "" ] ; then
 		case "${SSH_AUTH_SOCK}" in
 			/*)
 				if [ -S "${SSH_AUTH_SOCK}" ] ; then
-					echo "true"
-				else
-					echo "false"
+					ps auxwww | grep "${SSH_AGENT_PID}" | grep ssh-agent$ >/dev/null && retval="true"
 				fi
 				;;
 			*)
-				echo "true"
+				retval="true"
 				;;
 		esac
 
 	fi
+	echo "${retval}"
 }
 check_auth_file () {
 	retval="false"
