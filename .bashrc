@@ -11,7 +11,7 @@ SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
     echo "Initialising new SSH agent..."
-    (umask 066; /usr/bin/ssh-agent -c > "${SSH_ENV}")
+    (umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add;
 }
