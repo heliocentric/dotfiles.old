@@ -1,18 +1,18 @@
 #!/bin/sh
-curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
-/tmp/yadm clone https://github.com/heliocentric/dotfiles.git
-/tmp/yadm reset --hard HEAD
 PATH="${HOME}/bin:${PATH}"
 OSNAME="$(uname -s)"
 case "${OSNAME}" in
 	FreeBSD)
-		sudo pkg install puppet4
-		sudo pkg install mcollective
+		sudo pkg install puppet4 mcollective git
 		;;
 	Linux)
-		sudo yum install puppet-agent
+		sudo yum install puppet-agent git
 		;;
 
 esac
+
+curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
+/tmp/yadm clone https://github.com/heliocentric/dotfiles.git
+/tmp/yadm reset --hard HEAD
 ysync
 psync
