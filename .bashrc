@@ -7,16 +7,23 @@ export EDITOR=vim
 export PAGER=less
 export CLICOLOR=true
 export LSCOLORS=Exfxcxdxbxegedabagacad
-ssh-add -l &>/dev/null
-if [ "$?" == 2 ]; then
-  test -r ~/.ssh-agent && \
-    eval "$(<~/.ssh-agent)" >/dev/null
+SSH_ENV="$HOME/.ssh/environment"
 
-  ssh-add -l &>/dev/null
-  if [ "$?" == 2 ]; then
-    (umask 066; ssh-agent -c > ~/.ssh-agent)
-    eval "$(<~/.ssh-agent)" >/dev/null
-    ssh-add
-  fi
+function start_agent {
+    echo "Initialising new SSH agent..."
+    (umask 066; /usr/bin/ssh-agent -c > "${SSH_ENV}")
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
 fi
 ysync
