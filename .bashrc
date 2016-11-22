@@ -7,4 +7,16 @@ export EDITOR=vim
 export PAGER=less
 export CLICOLOR=true
 export LSCOLORS=Exfxcxdxbxegedabagacad
+ssh-add -l &>/dev/null
+if [ "$?" == 2 ]; then
+  test -r ~/.ssh-agent && \
+    eval "$(<~/.ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" == 2 ]; then
+    (umask 066; ssh-agent -c > ~/.ssh-agent)
+    eval "$(<~/.ssh-agent)" >/dev/null
+    ssh-add
+  fi
+fi
 ysync
