@@ -44,8 +44,6 @@ check_auth_file () {
 runagent="false"
 AUTHSOCK="$(check_auth_sock)"
 FILE="$(check_auth_file)"
-echo "authsock="${AUTHSOCK}""
-echo "file="${FILE}""
 if [ "${FILE}" = "true" -o "${AUTHSOCK}" = "true" ] ; then
 	runagent="false"
 else
