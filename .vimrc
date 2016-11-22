@@ -97,3 +97,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
