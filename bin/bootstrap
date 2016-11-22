@@ -4,4 +4,3 @@ curl -o /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm &
 /tmp/yadm reset --hard HEAD
 ./bin/yadm submodule init
 ./bin/yadm submodule update
-rm -rf /tmp/yadm
