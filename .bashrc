@@ -15,16 +15,31 @@ function start_agent {
 	. "${SSH_ENV}" > /dev/null
 	/usr/bin/ssh-add;
 }
+runagent=true
 if [ "${SSH_AUTH_SOCK}" = "" ] ; then
+	runagent="true"
+else
+	case "${SSH_AUTH_SOCK}" in
+		/*)
+			if [ -f "${SSH_AUTH_SOCK}" ] ; then
+				runagent="false"
+			else
+				runagent="true"
+			fi
+			;;
+		*)	
+			runagent="false"
+			;;
+	esac
+fi
+if [ "${runagent}" = "true" ] ; then
 	# Source SSH settings, if applicable
 
 	if [ -f "${SSH_ENV}" ]; then
 		. "${SSH_ENV}" > /dev/null
-		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || start_agent
+	else
 		start_agent;
-	}
-else
-	start_agent;
-fi
+	fi
 fi
 ysync
