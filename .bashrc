@@ -10,20 +10,21 @@ export LSCOLORS=Exfxcxdxbxegedabagacad
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
-    echo "Initialising new SSH agent..."
-    (umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
+	echo "Initialising new SSH agent..."
+	(umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
+	. "${SSH_ENV}" > /dev/null
+	/usr/bin/ssh-add;
 }
+if [ "${SSH_AUTH_SOCK}" = "" ] ; then
+	# Source SSH settings, if applicable
 
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
+	if [ -f "${SSH_ENV}" ]; then
+		. "${SSH_ENV}" > /dev/null
+		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	}
 else
-    start_agent;
+	start_agent;
+fi
 fi
 ysync
