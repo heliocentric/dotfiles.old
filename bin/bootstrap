@@ -1,0 +1,7 @@
+#!/bin/sh
+curl -o /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
+/tmp/yadm clone https://github.com/heliocentric/dotfiles.git
+/tmp/yadm reset --hard HEAD
+./bin/yadm submodule init
+./bin/yadm submodule update
+rm -rf /tmp/yadm
