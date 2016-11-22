@@ -12,3 +12,4 @@ alias ysync='yadm pull origin && yadm submodule init && yadm submodule update'
 export PATH="${HOME}/bin:${PATH}"
 export CLICOLOR=true
 export LSCOLORS=Exfxcxdxbxegedabagacad
+ysync
