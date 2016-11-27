@@ -1,0 +1,21 @@
+#!/bin/sh
+while [ 1 != 2 ]
+do
+	var=""
+	result=$(iwconfig 2>/dev/null | grep SSID | awk '{ print $4 }' | cut -d : -f 2 | cut -d '"' -f 2)
+	ifconfig wlan0 | grep ssid | awk '{ print $2; }')"
+	if [ "${result}" != "" ] ; then
+		var="${var}wlan: ${result} | "
+	fi
+	result="$(mixer | grep vol | awk '{ print $7; }' | cut -d : -f 1)"
+	if [ "${result}" != "" ] ; then
+		var="${var}volume: ${result} | "
+	fi
+	result="$(upower -i $(upower -e | grep 'BAT') | grep -E "percentage"  | awk '{ print $2 }')"
+	if [ "${result}" != "-1" ] ; then
+		var="${var}batt: ${result} | "
+	fi
+	var="${var}date: $(date)"
+	xsetroot -name $status "${var}"
+	sleep 1
+done
