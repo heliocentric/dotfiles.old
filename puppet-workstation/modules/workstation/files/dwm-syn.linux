@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 . ~/.bashrc
 export JAVAVM_OPTS=-Dawt.useSystemAAFontSettings=off
 export _JAVA_AWT_WM_NONREPARENTING=1
