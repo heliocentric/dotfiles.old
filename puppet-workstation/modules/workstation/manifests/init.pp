@@ -65,7 +65,7 @@ class workstation() {
 			$packages = $global_packages + $nix_packages + $freebsd_packages
 			$package_provider = "pkgng"
 			file { "/usr/local/bin/dwm-syn":
-				source => "puppet:///modules/workstation/dwm-syn.freebsd",
+				source => "puppet:///modules/workstation/dwm-syn",
 				mode => "755",
 				owner => "root",
 			}
@@ -84,7 +84,7 @@ class workstation() {
 			$packages = $global_packages + $nix_packages + $rhel_packages
 			$package_provider = "yum"
 			file { "/usr/local/bin/dwm-syn":
-				source => "puppet:///modules/workstation/dwm-syn.linux",
+				source => "puppet:///modules/workstation/dwm-syn",
 				mode => "755",
 				owner => "root",
 			}

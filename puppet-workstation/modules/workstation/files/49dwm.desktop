@@ -3,6 +3,6 @@ Encoding=UTF-8
 TryExec=/usr/local/bin/dwm-syn
 Exec=dwm-syn
 Icon=/usr/local/share/pixmaps/dwm.png
-Name=DWM
+Name=DWM (patched+synergy+x11vnc)
 Comment=A lightweight desktop environment
 
