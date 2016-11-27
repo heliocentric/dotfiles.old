@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/sh
 . ~/.bashrc
 export JAVAVM_OPTS=-Dawt.useSystemAAFontSettings=off
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -20,28 +20,7 @@ run_synergy() {
                 sleep 2
         done
 }
-clock() {
-        while [ 1 != 2 ]
-        do
-                var=""
-                result="$(ifconfig wlan0 | grep ssid | awk '{ print $2; }')"
-                if [ "${result}" != "" ] ; then
-                        var="${var}wlan: ${result} | "
-                fi
-                result="$(mixer | grep vol | awk '{ print $7; }' | cut -d : -f 1)"
-                if [ "${result}" != "" ] ; then
-                        var="${var}volume: ${result} | "
-                fi
-                result="$(apm -l)"
-                if [ "${result}" != "-1" ] ; then
-                        var="${var}batt: ${result} | "
-                fi
-                var="${var}date: $(date)"
-                xsetroot -name $status "${var}"
-                sleep 1
-        done
-}
-clock &
+dwm-status &
 run_synergy &
 daemon -r x11vnc -forever -shared -repeat
 if [ -f "${HOME}/.dwm-login" ] ; then
