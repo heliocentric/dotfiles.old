@@ -5,12 +5,12 @@ do
 	SOURCE="$(echo "${spec}" | cut -d "/" -f 1)"
 	SPATH="$(echo "${spec}" | cut -d "/" -f 2-200)"
 	DESTDIR="$(dirname "${SPATH}")"
-	mkdir -p "${CODEPATH}/${DESTDIR}"
+	mkdir -p "${CODEPATH}/${SOURCE}/${DESTDIR}"
 
 	case "${SOURCE}" in
 		github)
 			SOURCEREPO="git@github.com:${SPATH}"
-			DESTPATH="${CODEPATH}/${SPATH}"
+			DESTPATH="${CODEPATH}/github/${SPATH}"
 			if [ -d "${DESTPATH}" ] ; then
 				cd ${DESTPATH}
 				git fetch origin &
