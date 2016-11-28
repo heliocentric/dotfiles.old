@@ -1,3 +1,4 @@
 #!/bin/sh
 
 yadm pull origin && yadm submodule init && yadm submodule update
+

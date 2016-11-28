@@ -1,0 +1,22 @@
+#!/bin/sh
+CODEPATH="${HOME}/code"
+for spec in $(cat "${HOME}/.csync")
+do
+	SOURCE="$(echo "${spec}" | cut -d "/" -f 1)"
+	SPATH="$(echo "${spec}" | cut -d "/" -f 2-200)"
+	DESTDIR="$(dirname "${SPATH}")"
+	mkdir -p "${CODEPATH}/${DESTDIR}"
+
+	case "${SOURCE}" in
+		github)
+			SOURCEREPO="git@github.com:${SPATH}"
+			DESTPATH="${CODEPATH}/${SPATH}"
+			if [ -d "${DESTPATH}" ] ; then
+				cd ${DESTPATH}
+				git fetch origin &
+			else
+				git clone "${SOURCEREPO}" "${DESTPATH}"
+			fi
+		;;
+	esac
+done
