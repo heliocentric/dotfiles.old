@@ -16,7 +16,7 @@ curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm 
 /tmp/yadm reset --hard origin/master
 mkdir ${HOME}/.ssh
 cp /mnt/bootstrap/id_rsa ${HOME}/.ssh/id_rsa
-cp /mnt/bootstrap/id_rsa ${HOME}/.ssh/id_rsa.pub
+cp /mnt/bootstrap/id_rsa.pub ${HOME}/.ssh/id_rsa.pub
 cp -Rp /mnt/bootstrap/Password ${HOME}/
 
 ysync
