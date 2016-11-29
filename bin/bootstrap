@@ -13,7 +13,7 @@ esac
 
 curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
 /tmp/yadm clone https://github.com/heliocentric/dotfiles.git
-/tmp/yadm reset --hard HEAD
+/tmp/yadm reset --hard origin/master
 mkdir ${HOME}/.ssh
 cp /mnt/bootstrap/id_rsa ${HOME}/.ssh/id_rsa
 cp /mnt/bootstrap/id_rsa ${HOME}/.ssh/id_rsa.pub
