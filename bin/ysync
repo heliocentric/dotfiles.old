@@ -1,4 +1,5 @@
 #!/bin/sh
 
+cd "${HOME}"
 yadm pull origin && yadm submodule init && yadm submodule update
 
