@@ -27,6 +27,11 @@ class workstation() {
 	$nix_packages = [
 		"dwm",
 		"chromium",
+		"dunst",
+		"feh",
+		"autoconf",
+		"gcc",
+		"gcc-devel",
 		"firefox",
 		"inkscape",
 		"blender",
