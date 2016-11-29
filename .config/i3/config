@@ -30,8 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
+bindsym $mod+Return exec lxterminal
+bindsym $mod+Shift+f exec ~/code/github/rox-deskto/rox-filer/ROX-Filer/AppRun
 # kill focused window
 bindsym $mod+Shift+c kill
 
