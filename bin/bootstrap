@@ -21,3 +21,5 @@ cp -Rp /mnt/bootstrap/Password ${HOME}/
 
 ysync
 psync
+mkdir ${HOME}/gdrive
+
