@@ -18,5 +18,16 @@ do
 				git clone "${SOURCEREPO}" "${DESTPATH}"
 			fi
 		;;
+		bitbucket)
+			SOURCEREPO="git@bitbucket.org:${SPATH}.git"
+			echo "${SOURCEREPO}"
+			DESTPATH="${CODEPATH}/bitbucket/${SPATH}"
+			if [ -d "${DESTPATH}" ] ; then
+				cd ${DESTPATH}
+				git fetch origin &
+			else
+				git clone "${SOURCEREPO}" "${DESTPATH}"
+			fi
+		;;
 	esac
 done

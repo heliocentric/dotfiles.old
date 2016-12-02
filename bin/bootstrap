@@ -14,9 +14,9 @@ esac
 curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm && chmod a+x /tmp/yadm
 /tmp/yadm clone https://github.com/heliocentric/dotfiles.git
 /tmp/yadm reset --hard origin/master
-mkdir ${HOME}/.ssh
-cp /mnt/bootstrap/id_rsa ${HOME}/.ssh/id_rsa
-cp /mnt/bootstrap/id_rsa.pub ${HOME}/.ssh/id_rsa.pub
+mkdir -p ${HOME}/.ssh/keyring
+cp -R /mnt/bootstrap/keyring ${HOME}/.ssh/keyring
+chmod 007 ${HOME}/.ssh/keyring/
 cp -Rp /mnt/bootstrap/Password ${HOME}/
 
 ysync
