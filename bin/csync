@@ -1,33 +1,53 @@
 #!/bin/sh
 CODEPATH="${HOME}/code"
-for spec in $(cat "${HOME}/.csync")
-do
-	SOURCE="$(echo "${spec}" | cut -d "/" -f 1)"
-	SPATH="$(echo "${spec}" | cut -d "/" -f 2-200)"
-	DESTDIR="$(dirname "${SPATH}")"
-	mkdir -p "${CODEPATH}/${SOURCE}/${DESTDIR}"
-
+sync_code () {
+	SOURCE="$(echo "${1}" | cut -d "/" -f 1)"
+	SPATH="$(echo "${1}" | cut -d "/" -f 2-200)"
+	echo "${SPATH}"
+	shift
+	REMOTE=$1
+	shift
+	DESTPATH=$1
+	shift
+	BRANCH=$1
 	case "${SOURCE}" in
 		github)
 			SOURCEREPO="git@github.com:${SPATH}"
-			DESTPATH="${CODEPATH}/github/${SPATH}"
 			if [ -d "${DESTPATH}" ] ; then
 				cd ${DESTPATH}
-				git fetch origin &
+				git remote add "${REMOTE}" "${SOURCEREPO}"
+				git remote set-url "${REMOTE}" "${SOURCEREPO}"
+				git fetch "${REMOTE}" &
 			else
 				git clone "${SOURCEREPO}" "${DESTPATH}"
 			fi
 		;;
 		bitbucket)
 			SOURCEREPO="git@bitbucket.org:${SPATH}.git"
-			echo "${SOURCEREPO}"
-			DESTPATH="${CODEPATH}/bitbucket/${SPATH}"
 			if [ -d "${DESTPATH}" ] ; then
 				cd ${DESTPATH}
-				git fetch origin &
+				git fetch "${REMOTE}" &
 			else
 				git clone "${SOURCEREPO}" "${DESTPATH}"
 			fi
 		;;
 	esac
+
+}
+for spec in $(cat "${HOME}/.csync")
+do
+	ORIGIN="$(echo "${spec}" | cut -d '|' -f 1)"
+	BRANCH="$(echo "${spec}" | cut -sd '|' -f 2)"
+	UPSTREAM="$(echo "${spec}" | cut -sd '|' -f 3)"
+	SOURCE="$(echo "${ORIGIN}" | cut -d "/" -f 1)"
+	SPATH="$(echo "${ORIGIN}" | cut -d "/" -f 2-200)"
+	DESTDIR="$(dirname "${SPATH}")"	
+
+
+	mkdir -p "${CODEPATH}/${SOURCE}/${DESTDIR}"
+	sync_code "${ORIGIN}" origin "${CODEPATH}/${ORIGIN}" "${BRANCH}"
+	if [ "${UPSTREAM}" != "" ] ; then
+		sync_code "${UPSTREAM}" upstream "${CODEPATH}/${ORIGIN}" "${BRANCH}"
+	fi
+
 done
