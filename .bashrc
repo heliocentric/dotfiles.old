@@ -53,8 +53,5 @@ if [ "${runagent}" = "true" ] ; then
 	# Source SSH settings, if applicable
 	start_agent;
 fi
-
-
-
-
+VAGRANT_DEFAULT_PROVIDER=virtualbox
 ysync
