@@ -15,7 +15,7 @@ sync_code () {
 			SOURCEREPO="git@github.com:${SPATH}"
 			if [ -d "${DESTPATH}" ] ; then
 				cd ${DESTPATH}
-				git remote add "${REMOTE}" "${SOURCEREPO}"
+				git remote add "${REMOTE}" "${SOURCEREPO}" 2>/dev/null >/dev/null
 				git remote set-url "${REMOTE}" "${SOURCEREPO}"
 				git fetch "${REMOTE}" &
 			else
@@ -34,7 +34,7 @@ sync_code () {
 	esac
 
 }
-for spec in $(cat "${HOME}/.csync")
+for spec in $(cat "${HOME}/.csync" ${HOME}/.csync.d/*)
 do
 	ORIGIN="$(echo "${spec}" | cut -d '|' -f 1)"
 	BRANCH="$(echo "${spec}" | cut -sd '|' -f 2)"
