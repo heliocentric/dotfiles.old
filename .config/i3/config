@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec lxterminal
-bindsym $mod+Shift+f exec ~/code/github/rox-deskto/rox-filer/ROX-Filer/AppRun
+bindsym $mod+Shift+f exec ~/c/rox-filer/ROX-Filer/AppRun
 # kill focused window
 bindsym $mod+Shift+c kill
 
@@ -150,3 +150,5 @@ bar {
 	tray_output primary
         status_command i3status
 }
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/$USER/.i3/workspace-1.json'"
+exec --no-startup-id "./c/rox-filer/ROX-Filer/AppRun --pinboard Default"

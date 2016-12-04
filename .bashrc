@@ -14,6 +14,7 @@ start_agent () {
 	echo "Initialising new SSH agent..."
 	(umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
 	. "${SSH_ENV}" > /dev/null
+	ssh-add
 }
 check_auth_sock () {
 	retval="false"
