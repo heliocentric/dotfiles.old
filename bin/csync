@@ -13,7 +13,11 @@ sync_code () {
 	BRANCH=$1
 	case "${SOURCE}" in
 		github)
-			SOURCEREPO="git@github.com:${SPATH}"
+			if [ "${REMOTE}" == "upstream" ] ; then
+				SOURCEREPO="https://github.com/${SPATH}"
+			else
+				SOURCEREPO="git@github.com:${SPATH}"
+			fi
 			if [ -d "${DESTPATH}" ] ; then
 				cd ${DESTPATH}
 				git remote add "${REMOTE}" "${SOURCEREPO}" 2>/dev/null >/dev/null
