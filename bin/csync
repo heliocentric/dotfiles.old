@@ -52,6 +52,7 @@ do
 		sync_code "${UPSTREAM}" upstream "${CODEPATH}/${ORIGIN}" "${BRANCH}"
 	fi
 	NAME="$(basename "${ORIGIN}")"
+	echo ln -fns "${CODEPATH}/${ORIGIN}" "${LINKSDIR}/${NAME}"
 	ln -fns "${CODEPATH}/${ORIGIN}" "${LINKSDIR}/${NAME}"
 
 done
