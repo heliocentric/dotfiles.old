@@ -14,7 +14,6 @@ start_agent () {
 	echo "Initialising new SSH agent..."
 	(umask 066; /usr/bin/ssh-agent > "${SSH_ENV}")
 	. "${SSH_ENV}" > /dev/null
-	/usr/bin/ssh-add;
 }
 check_auth_sock () {
 	retval="false"
@@ -53,5 +52,19 @@ if [ "${runagent}" = "true" ] ; then
 	# Source SSH settings, if applicable
 	start_agent;
 fi
+for file in $(echo "${HOME}/.ssh/keyring/*")
+do
+	EXISTS="$(ssh-add -l | grep "${file}")"
+	if [ "${EXISTS}" = "" ] ; then
+		case "${file}" in
+			*.pub)
+				;;
+			*)
+				/usr/bin/ssh-add "${file}"
+				;;
+		esac
+	fi
+done
+
 VAGRANT_DEFAULT_PROVIDER=virtualbox
 ysync

@@ -16,7 +16,7 @@ curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm 
 /tmp/yadm reset --hard origin/master
 mkdir -p ${HOME}/.ssh/keyring
 cp -R /mnt/bootstrap/keyring ${HOME}/.ssh/keyring
-chmod 007 ${HOME}/.ssh/keyring/
+chmod 700 ${HOME}/.ssh/keyring/
 cp -Rp /mnt/bootstrap/Password ${HOME}/
 
 ysync
