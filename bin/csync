@@ -1,6 +1,7 @@
 #!/bin/sh
 CODEPATH="${HOME}/code"
 LINKSDIR="${HOME}/c"
+. "${HOME}/.csyncrc"
 sync_code () {
 	SOURCE="$(echo "${1}" | cut -d "/" -f 1)"
 	SPATH="$(echo "${1}" | cut -d "/" -f 2-200)"
@@ -43,8 +44,9 @@ mkdir -p "${LINKSDIR}"
 for spec in $(cat "${HOME}/.csync" ${HOME}/.csync.d/*)
 do
 	ORIGIN="$(echo "${spec}" | cut -d '|' -f 1)"
-	BRANCH="$(echo "${spec}" | cut -sd '|' -f 2)"
-	UPSTREAM="$(echo "${spec}" | cut -sd '|' -f 3)"
+	UPSTREAM="$(echo "${spec}" | cut -sd '|' -f 2)"
+	USERPROFILE="$(echo "${spec}" | cut -sd '|' -f 3)"
+	BRANCH=""
 	SOURCE="$(echo "${ORIGIN}" | cut -d "/" -f 1)"
 	SPATH="$(echo "${ORIGIN}" | cut -d "/" -f 2-200)"
 	DESTDIR="$(dirname "${SPATH}")"
