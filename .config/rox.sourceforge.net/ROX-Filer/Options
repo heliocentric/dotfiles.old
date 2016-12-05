@@ -93,7 +93,7 @@
   <Option name="override_redirect">1</Option>
   <Option name="iconify_start">1</Option>
   <Option name="display_details">0</Option>
-  <Option name="display_show_thumbs">0</Option>
+  <Option name="display_show_thumbs">1</Option>
   <Option name="dnd_spring_open">0</Option>
   <Option name="filer_short_flag_names">0</Option>
 </Options>
