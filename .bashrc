@@ -69,3 +69,6 @@ done
 
 VAGRANT_DEFAULT_PROVIDER=virtualbox
 ysync
+HOSTNAME="$(hostname)"
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+

@@ -21,6 +21,9 @@ sync_code () {
 		bitbucket)
 			SOURCEREPO="git@bitbucket.org:${SPATH}.git"
 			;;
+		gitlab)
+			SOURCEREPO="git@gitlab.com:${SPATH}.git"
+			;;
 	esac
 	if [ -d "${DESTPATH}" ] ; then
 		cd ${DESTPATH}
