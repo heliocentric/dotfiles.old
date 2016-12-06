@@ -67,8 +67,7 @@ do
 	fi
 done
 
-VAGRANT_DEFAULT_PROVIDER=virtualbox
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
 ysync
 HOSTNAME="$(hostname)"
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-
+PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
