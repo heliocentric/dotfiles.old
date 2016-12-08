@@ -48,7 +48,8 @@ class workstation() {
 		"dmenu",
 		"lxterminal",
 		"slock",
-
+    "i3",
+		"i3status",
 	]
 	case downcase($osfamily) {
 		"windows" : {
