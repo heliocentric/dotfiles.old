@@ -50,6 +50,11 @@ class workstation() {
 		"slock",
     "i3",
 		"i3status",
+		"grive2",
+		"nano",
+		"htop",
+		"screen",
+		"tmux",
 	]
 	case downcase($osfamily) {
 		"windows" : {
@@ -70,22 +75,23 @@ class workstation() {
 			]
 			$packages = $global_packages + $nix_packages + $freebsd_packages
 			$package_provider = "pkgng"
-			file { "/usr/local/bin/dwm-syn":
-				source => "puppet:///modules/workstation/dwm-syn",
-				mode => "755",
-				owner => "root",
-			}
-			file { "/usr/local/share/xsessions/49dwm.desktop":
-				source => "puppet:///modules/workstation/49dwm.desktop",
-				mode => "755",
-				owner => "root",
-			}
+#			file { "/usr/local/bin/dwm-syn":
+#				source => "puppet:///modules/workstation/dwm-syn",
+#				mode => "755",
+#				owner => "root",
+#			}
+#			file { "/usr/local/share/xsessions/49dwm.desktop":
+#				source => "puppet:///modules/workstation/49dwm.desktop",
+#				mode => "755",
+#				owner => "root",
+#			}
 		}
 		"redhat" : {
 			$rhel_packages = [
 				"mono-core",
 				"gimp",
 				"docker",
+				"vim-enhanced",
 			]
 			$packages = $global_packages + $nix_packages + $rhel_packages
 			$package_provider = "yum"

@@ -152,3 +152,4 @@ bar {
 }
 exec --no-startup-id "./c/rox-filer/ROX-Filer/AppRun --pinboard Default"
 exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/$USER/.i3/workspace-1.json'"
+exec --no-startup-id "xrandr --output HDMI1 --auto --right-of DP1"

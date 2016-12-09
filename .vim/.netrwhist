@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/helio/code/bitbucket/dylancochran/vagrant-pe4-simp'
+let g:netrw_dirhist_2='/home/helio/code/bitbucket/dylancochran/vagrant-pe4-simp/manifests'
+let g:netrw_dirhist_3='/home/helio/code/bitbucket/dylancochran/vagrant-pe4-simp'
