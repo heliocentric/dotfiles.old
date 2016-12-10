@@ -3,26 +3,63 @@ CODEPATH="${HOME}/code"
 LINKSDIR="${HOME}/c"
 . "${HOME}/.csyncrc"
 sync_code () {
-	SOURCE="$(echo "${1}" | cut -d "/" -f 1)"
-	SPATH="$(echo "${1}" | cut -d "/" -f 2-200)"
+	PROTOCOL=""
+	VAR="${1}"
 	shift
 	REMOTE=$1
 	shift
 	DESTPATH=$1
 	shift
-	case "${SOURCE}" in
-		github)
-			if [ "${REMOTE}" == "upstream" ] ; then
-				SOURCEREPO="https://github.com/${SPATH}"
+	case "${VAR}" in
+		ssh://*)
+			PROTOCOL="ssh"
+			VAR="$(echo "${VAR}" | sed s@ssh://@@g)"
+			;;
+		https://*)
+			PROTOCOL="https"
+			VAR="$(echo "${VAR}" | sed s@https://@@g)"
+			;;
+		*)
+			if [ "${REMOTE}" = "upstream" ] ; then
+				PROTOCOL="https"
 			else
-				SOURCEREPO="git@github.com:${SPATH}"
+				PROTOCOL="ssh"
 			fi
 			;;
+	esac
+	echo "${VAR} - ${PROTOCOL}"
+	SOURCE="$(echo "${VAR}" | cut -d "/" -f 1)"
+	SPATH="$(echo "${VAR}" | cut -d "/" -f 2-200)"
+	case "${SOURCE}" in
+		github)
+			case "${PROTOCOL}" in
+				ssh)
+					SOURCEREPO="git@github.com:${SPATH}"
+					;;
+				https)
+					SOURCEREPO="https://github.com/${SPATH}"
+					;;
+			esac
+			;;
 		bitbucket)
-			SOURCEREPO="git@bitbucket.org:${SPATH}.git"
+			case "${PROTOCOL}" in
+				ssh)
+					SOURCEREPO="git@bitbucket.org:${SPATH}.git"
+					;;
+				https)
+					SOURCEREPO="https://bitbucket.org/${SPATH}.git"
+					;;
+			esac
 			;;
 		gitlab)
-			SOURCEREPO="git@gitlab.com:${SPATH}.git"
+			case "${PROTOCOL}" in
+				ssh)
+					SOURCEREPO="git@gitlab.com:${SPATH}.git"
+					;;
+				https)
+					SOURCEREPO="https://gitlab.com/${SPATH}.git"
+					;;
+			esac
 			;;
 	esac
 	if [ -d "${DESTPATH}" ] ; then
