@@ -16,3 +16,9 @@
 [submodule ".vim/bundle/headlights"]
 	path = .vim/bundle/headlights
 	url = https://github.com/mbadran/headlights
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule ".vim/bundle/vim-fugutive"]
+	path = .vim/bundle/vim-fugutive
+	url = https://github.com/tpope/vim-fugitive
