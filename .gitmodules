@@ -31,3 +31,12 @@
 [submodule ".vim/bundle/colorschemes"]
 	path = .vim/bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule ".vim/bundle/vim-consul"]
+	path = .vim/bundle/vim-consul
+	url = https://github.com/hashivim/vim-consul.git
+[submodule ".vim/bundle/vim-vagrant"]
+	path = .vim/bundle/vim-vagrant
+	url = https://github.com/hashivim/vim-vagrant.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown
