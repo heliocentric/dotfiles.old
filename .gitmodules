@@ -22,15 +22,6 @@
 [submodule ".vim/bundle/vim-fugutive"]
 	path = .vim/bundle/vim-fugutive
 	url = https://github.com/tpope/vim-fugitive
-[submodule "code/gitlab/onyxpoint/stadium-simp/.vim/bundle/nerdtree"]
-	path = code/gitlab/onyxpoint/stadium-simp/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
-[submodule "code/gitlab/onyxpoint/stadium-simp/.vim/bundle/vim-airline"]
-	path = code/gitlab/onyxpoint/stadium-simp/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "code/gitlab/onyxpoint/stadium-simp/.vim/bundle/vim-airline-themes"]
-	path = code/gitlab/onyxpoint/stadium-simp/.vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes
