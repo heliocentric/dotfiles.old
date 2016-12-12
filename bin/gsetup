@@ -1,4 +1,10 @@
 #!/bin/sh
-cd ~/gdrive
-grive -a
+DPATHS="~/gdrive"
+. ~/.localdrives
+for drive in ${DPATHS} ${DRIVES}
+do
+	mkdir -p "${drive}"
+	cd "${drive}"
+	grive -a
+done
 sudo puppet resource cron "gsync-${USER}" "user=${USER}" minute='*/2' commant='/home/${USER}/bin/gsync'

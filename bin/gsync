@@ -1,3 +1,8 @@
 #!/bin/sh
-cd ~/gdrive
-grive
+DPATHS="~/gdrive"
+. ~/.localdrives
+for drive in ${DPATHS} ${DRIVES}
+do
+	cd ${drive}
+	grive
+done
