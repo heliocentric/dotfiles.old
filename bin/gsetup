@@ -1,3 +1,4 @@
 #!/bin/sh
 cd ~/gdrive
 grive -a
+sudo puppet resource cron "gsync-${USER}" "user=${USER}" minute='*/2' commant='/home/${USER}/bin/gsync'
