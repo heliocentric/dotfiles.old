@@ -1,5 +1,5 @@
 #!/bin/sh
-DPATHS="~/gdrive"
+DPATHS="${HOME}/gdrive"
 . ~/.localdrives
 for drive in ${DPATHS} ${DRIVES}
 do
