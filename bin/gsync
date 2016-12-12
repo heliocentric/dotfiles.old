@@ -1,6 +1,8 @@
 #!/bin/sh
 DPATHS="${HOME}/gdrive"
-. ~/.localdrives
+if [ -f "~/.localdrives" ] ; then
+	. ~/.localdrives
+fi
 for drive in ${DPATHS} ${DRIVES}
 do
 	cd ${drive}
