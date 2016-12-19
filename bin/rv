@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$1" != "" ] ; then
-	docker run -it --rm -v $(pwd):/root simpproject/centos6:ruby21 bash -c "cd /root && ${@}"
+	docker run -it --rm -v $(pwd):/data:z simpproject/centos6:ruby21 bash -c "cd /data && "${@}""
 else
-	docker run -it --rm -v $(pwd):/root simpproject/centos6:ruby21 bash -c "cd /root && bash"
+	docker run -it --rm -v $(pwd):/data:z simpproject/centos6:ruby21 bash -c "cd /data && bash"
 fi
