@@ -105,6 +105,13 @@ class workstation() {
 				mode => "755",
 				owner => "root",
 			}
+			group { "docker":
+				ensure => present,
+			} ->
+			service { "docker":
+				enable => "true",
+				ensure => "running",
+			}
 		}
 	}
 	package { $packages:

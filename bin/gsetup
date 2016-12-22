@@ -9,4 +9,4 @@ do
 	cd "${drive}"
 	grive -a
 done
-sudo puppet resource cron "gsync-${USER}" "user=${USER}" minute='*/2' command='/home/${USER}/bin/gsync'
+sudo puppet resource cron "gsync-${USER}" "user=${USER}" minute='*/2' command="/home/${USER}/bin/gsync"
