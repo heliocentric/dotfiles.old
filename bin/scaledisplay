@@ -1,0 +1,3 @@
+#!/bin/sh
+xrandr --dpi 141
+xrandr --output eDP1 --scale 0.6x0.6
