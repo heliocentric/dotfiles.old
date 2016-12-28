@@ -95,16 +95,16 @@ class workstation() {
 			]
 			$packages = $global_packages + $nix_packages + $rhel_packages
 			$package_provider = "yum"
-			file { "/usr/local/bin/dwm-syn":
-				source => "puppet:///modules/workstation/dwm-syn",
-				mode => "755",
-				owner => "root",
-			}
-			file { "/usr/share/xsessions/49dwm.desktop":
-				source => "puppet:///modules/workstation/49dwm.desktop",
-				mode => "755",
-				owner => "root",
-			}
+			/* file { "/usr/local/bin/dwm-syn": */
+			/* 	source => "puppet:///modules/workstation/dwm-syn", */
+			/* 	mode => "755", */
+			/* 	owner => "root", */
+			/* } */
+			/* file { "/usr/share/xsessions/49dwm.desktop": */
+			/* 	source => "puppet:///modules/workstation/49dwm.desktop", */
+			/* 	mode => "755", */
+			/* 	owner => "root", */
+			/* } */
 			group { "docker":
 				ensure => present,
 			} ->
