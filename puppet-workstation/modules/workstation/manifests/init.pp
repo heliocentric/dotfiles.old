@@ -47,7 +47,7 @@ class workstation() {
 		"x11vnc",
 		"dmenu",
 		"lxterminal",
-		"slock",
+		"i3lock",
     "i3",
 		"i3status",
 		"grive2",
