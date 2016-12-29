@@ -1,0 +1,4 @@
+#!/bin/sh
+BRANCH="${1}"
+git checkout -b "${BRANCH}"
+git push origin -u "${BRANCH}"
