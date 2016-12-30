@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$1" != "" ] ; then
-	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:z simpproject/centos6:ruby21 bash -c "cd /data && "${@}""
+	docker run -e LOCAL_USER_ID=`id -u: $USER` -it --rm -v $(pwd):/data:z simpproject/centos6:ruby21 bash -c "cd /data && "${@}""
 else
 	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:z simpproject/centos6:ruby21 bash -c "cd /data && bash"
 fi
