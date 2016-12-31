@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/home/helio/code/gitlab/onyxpoint/containers/scripts'
 let g:netrw_dirhist_2='/home/helio/c'
+let g:netrw_dirhist_3='/home/helio/code/github/heliocentric/pupmod-simp-svckill/data/family_release'
