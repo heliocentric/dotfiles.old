@@ -7,9 +7,9 @@ let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set background=dark
 " let g:airline_theme='luna'
-if has('gui_running')
- 	set guioptions -=T
- 	colorscheme rcg_gui
-else
- 	colorscheme rcg_term
-endif
+" if has('gui_running')
+"  	set guioptions -=T
+"  	colorscheme rcg_gui
+" else
+"  	colorscheme rcg_term
+" endif
