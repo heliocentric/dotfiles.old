@@ -1,5 +1,5 @@
 #!/bin/sh
-CONTAINER="simpproject/centos:7-ruby21"
+CONTAINER="simpproject/centos:6-ruby21"
 docker pull "${CONTAINER}"
 if [ "$1" != "" ] ; then
 	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && "${@}""
