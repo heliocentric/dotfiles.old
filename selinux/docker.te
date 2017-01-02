@@ -1,0 +1,30 @@
+
+module docker 1.0;
+
+require {
+	type container_file_t;
+	type container_t;
+	type user_home_t;
+	class dir { add_name create read remove_name rename reparent rmdir setattr write };
+	class file { append create execute execute_no_trans getattr ioctl link lock open read rename setattr unlink write };
+	class lnk_file { create getattr read unlink };
+	class blk_file { create unlink };
+}
+
+#============= container_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow container_t container_file_t:blk_file { create unlink };
+
+#!!!! This avc is allowed in the current policy
+allow container_t user_home_t:dir { add_name create read remove_name rename reparent rmdir setattr write };
+
+#!!!! This avc is allowed in the current policy
+allow container_t user_home_t:file { append create execute execute_no_trans getattr ioctl link lock open read rename setattr unlink write };
+
+#!!!! The file '/data/spec/fixtures/modules/auditd/.git/tHKp9yJ' is mislabeled on your system.  
+#!!!! Fix with $ restorecon -R -v /data/spec/fixtures/modules/auditd/.git/tHKp9yJ
+allow container_t user_home_t:lnk_file getattr;
+
+#!!!! This avc is allowed in the current policy
+allow container_t user_home_t:lnk_file { create read unlink };

@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/helio/code/gitlab/onyxpoint/containers/scripts'
 let g:netrw_dirhist_2='/home/helio/c'
 let g:netrw_dirhist_3='/home/helio/code/github/heliocentric/pupmod-simp-svckill/data/family_release'
 let g:netrw_dirhist_4='/home/helio/code/github/heliocentric/pupmod-simp-pupmod/spec/classes/agent'
 let g:netrw_dirhist_5='/home/helio/code/github/heliocentric/pupmod-simp-pupmod/spec/classes'
+let g:netrw_dirhist_6='/home/helio/code/gitlab/onyxpoint/containers/centos6-ruby21'
+let g:netrw_dirhist_7='/home/helio/code/gitlab/onyxpoint/containers/centos6'
