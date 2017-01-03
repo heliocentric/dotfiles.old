@@ -35,7 +35,7 @@ github/GeekShed/control-repo
 github/GeekShed/puppet-gsircd
 github/rox-desktop/rox-filer
 bitbucket/dylancochran/private-csync||onyxpoint
-github/simp/puppet-module-skeleton||onyxpoint
+github/heliocentric/puppet-module-skeleton|github/simp/puppet-module-skeleton|onyxpoint
 github/heliocentric/pupmod-simp-stunnel|github/simp/pupmod-simp-stunnel|onyxpoint
 github/heliocentric/control-repo||onyxpoint
 gitlab/dylan.cochran/gitlabcloner||onyxpoint
@@ -44,4 +44,5 @@ github/heliocentric/pupmod-simp-simp|github/simp/pupmod-simp-simp|onyxpoint
 github/heliocentric/pupmod-simp-pupmod|github/simp/pupmod-simp-pupmod|onyxpoint
 github/heliocentric/pupmod-simp-svckill|github/simp/pupmod-simp-svckill|onyxpoint
 github/heliocentric/pupmod-simp-simp_options|github/simp/pupmod-simp-simp_options|onyxpoint
-github/heliocentric/beaker|gitub/trevor-vaughan/beaker|onyxpoint
+github/heliocentric/beaker|github/trevor-vaughan/beaker|onyxpoint
+github/heliocentric/rspec-puppet|github/rodjek/rspec-puppet|onyxpoint
