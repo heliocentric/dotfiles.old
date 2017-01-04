@@ -1,7 +1,7 @@
 github/heliocentric/simp-core|github/simp/simp-core|onyxpoint
 github/heliocentric/puppet-hlib
 github/heliocentric/stadium
-github/heliocentric/puppet-consul||github/solarkennedy/puppet-consul
+github/heliocentric/puppet-consul|github/solarkennedy/puppet-consul|
 github/heliocentric/l2mesh
 github/heliocentric/nomads
 github/heliocentric/nomads-ui
