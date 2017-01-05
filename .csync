@@ -12,7 +12,7 @@ github/heliocentric/dcr-stack
 github/heliocentric/garethr-docker|github/garethr/garethr-docker
 github/heliocentric/puppetlabs-firewall|github/puppetlabs/puppetlabs-firewall
 github/heliocentric/arda
-github/heliocentric/puppet|github/puppetlabs/puppet
+github/heliocentric/puppet|github/puppetlabs/puppet|
 github/heliocentric/Misc
 github/heliocentric/vmware_puppetfact|github/edgehosting/vmware_puppetfact
 github/heliocentric/puppet-nginx
@@ -47,3 +47,4 @@ github/heliocentric/pupmod-simp-simp_options|github/simp/pupmod-simp-simp_option
 github/heliocentric/beaker|github/trevor-vaughan/beaker|onyxpoint
 github/heliocentric/rspec-puppet|github/rodjek/rspec-puppet|onyxpoint
 github/heliocentric/pupmod-simp-simplib|github/simp/pupmod-simp-simplib|onyxpoint
+github/heliocentric/pupmod-simp-libkv||onyxpoint
