@@ -3,3 +3,6 @@
 	email = heliocentric@gmail.com
 [core]
 	editor = vim
+[alias]
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lol = log --graph --decorate --pretty='format:%h %G? %aN  %s' --abbrev-commit --all
