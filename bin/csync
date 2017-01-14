@@ -1,4 +1,5 @@
 #!/bin/sh
+# vim: set noexpandtab ts=2 sw=2:
 CODEPATH="${HOME}/code"
 LINKSDIR="${HOME}/c"
 . "${HOME}/.csyncrc"
@@ -73,6 +74,11 @@ sync_code () {
 	if [ "${USERPROFILE}" != "" ] ; then
 		git config user.name "${name}"
 		git config user.email "$(eval echo "\${${USERPROFILE}}")"
+		GPGKEY="$(eval echo "\${${USERPROFILE}_gpgkey}")"
+		if [ "${GPGKEY}" != "" ] ; then
+			git config user.signingkey "${GPGKEY}"
+		fi
+
 	fi
 }
 mkdir -p "${LINKSDIR}"
