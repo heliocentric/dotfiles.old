@@ -5,3 +5,5 @@
 	editor = vim
 [alias]
 	lol = log --graph --decorate --pretty='format:%h %G? %aN  %s' --abbrev-commit --all
+[gpg]
+	program = gpg2

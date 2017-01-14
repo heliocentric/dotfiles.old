@@ -77,6 +77,7 @@ sync_code () {
 		GPGKEY="$(eval echo "\${${USERPROFILE}_gpgkey}")"
 		if [ "${GPGKEY}" != "" ] ; then
 			git config user.signingkey "${GPGKEY}"
+			git config commit.gpgsign true
 		fi
 
 	fi
