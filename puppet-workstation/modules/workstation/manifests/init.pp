@@ -26,7 +26,7 @@ class workstation() {
 	]
 	$nix_packages = [
 		"dwm",
-		"chromium",
+		"kleopatra",
 		"dunst",
 		"feh",
 		"autoconf",
@@ -72,6 +72,7 @@ class workstation() {
 				"docker-freebsd",
 				"zxfer",
 				"iocage",
+				"chromium",
 			]
 			$packages = $global_packages + $nix_packages + $freebsd_packages
 			$package_provider = "pkgng"
@@ -93,6 +94,11 @@ class workstation() {
 				"docker",
 				"vim-enhanced",
 			]
+			package { 'lsb': }
+			package { "google-chrome":
+				source   => 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm',
+				provider => 'rpm',
+			}
 			$packages = $global_packages + $nix_packages + $rhel_packages
 			$package_provider = "yum"
 			/* file { "/usr/local/bin/dwm-syn": */

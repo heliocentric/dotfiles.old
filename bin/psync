@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo puppet apply --modulepath=${HOME}/puppet-workstation/modules ${HOME}/puppet-workstation/manifests/init.pp
+sudo /opt/puppetlabs/bin/puppet apply --modulepath=${HOME}/puppet-workstation/modules ${HOME}/puppet-workstation/manifests/init.pp

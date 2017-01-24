@@ -3,10 +3,11 @@ PATH="${HOME}/bin:${PATH}"
 OSNAME="$(uname -s)"
 case "${OSNAME}" in
 	FreeBSD)
-		sudo pkg install puppet4 mcollective git
+		sudo pkg install -y puppet4 mcollective git
 		;;
 	Linux)
-		sudo yum install puppet-agent git
+		sudo sudo rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+		sudo yum install -y puppet-agent git
 		;;
 
 esac
@@ -15,8 +16,8 @@ curl -Lo /tmp/yadm https://github.com/heliocentric/dotfiles/raw/master/bin/yadm 
 /tmp/yadm clone https://github.com/heliocentric/dotfiles.git
 /tmp/yadm reset --hard origin/master
 mkdir -p ${HOME}/.ssh/keyring
-cp -R /mnt/bootstrap/keyring ${HOME}/.ssh/keyring
-chmod 700 ${HOME}/.ssh/keyring/
+cp -R /mnt/bootstrap/keyring/* ${HOME}/.ssh/keyring/
+chmod -R 700 ${HOME}/.ssh/
 cp -Rp /mnt/bootstrap/Password ${HOME}/
 
 ysync
