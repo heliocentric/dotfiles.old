@@ -42,7 +42,7 @@ if [ "${CONTAINER}" = "" ] ; then
 fi
 docker pull "${CONTAINER}"
 if [ "$1" != "" ] ; then
-	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && bash -c '${@}'"
+	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" "${@}"
 else
-	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && bash"
+	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash
 fi
