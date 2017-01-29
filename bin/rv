@@ -1,5 +1,39 @@
 #!/bin/sh
-CONTAINER="simpproject/centos:6-ruby21"
+while getopts c:p:o:r:x: opt; do
+	case $opt in
+		c)
+			CONTAINER="$OPTARG"
+			;;
+		o)
+			OS="$OPTARG"
+			;;
+		r)
+			RELEASE="$OPTARG"
+			;;
+		p)
+			PLATFORM="$OPTARG"
+			;;
+		x)
+			PLATFORMVERSION="$OPTARG"
+			;;
+	esac
+done
+shift "$((OPTIND - 1))"
+if [ "${CONTAINER}" = "" ] ; then
+	if [ "${OS}" = "" ]; then
+		OS="centos"
+	fi
+	if [ "${RELEASE}" = "" ] ; then
+		RELEASE="6"
+	fi
+	if [ "${PLATFORM}" = "" ] ; then
+		PLATFORM="ruby"
+	fi
+	if [ "${PLATFORMVERSION}" = "" ] ; then
+		PLATFORMVERSION="21"
+	fi
+	CONTAINER="simpproject/${OS}:${RELEASE}-${PLATFORM}${PLATFORMVERSION}"
+fi
 docker pull "${CONTAINER}"
 if [ "$1" != "" ] ; then
 	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && "${@}""
