@@ -1,5 +1,5 @@
 #!/bin/sh
-while getopts c:p:o:r:x: opt; do
+while getopts c:p:o:r:x:n opt; do
 	case $opt in
 		c)
 			CONTAINER="$OPTARG"
@@ -16,6 +16,8 @@ while getopts c:p:o:r:x: opt; do
 		x)
 			PLATFORMVERSION="$OPTARG"
 			;;
+		n)
+			NOPLATFORM="true"
 	esac
 done
 shift "$((OPTIND - 1))"
@@ -32,11 +34,15 @@ if [ "${CONTAINER}" = "" ] ; then
 	if [ "${PLATFORMVERSION}" = "" ] ; then
 		PLATFORMVERSION="21"
 	fi
-	CONTAINER="simpproject/${OS}:${RELEASE}-${PLATFORM}${PLATFORMVERSION}"
+	if [ "${NOPLATFORM}" == "true" ] ; then
+		CONTAINER="simpproject/${OS}:${RELEASE}"
+	else
+		CONTAINER="simpproject/${OS}:${RELEASE}-${PLATFORM}${PLATFORMVERSION}"
+	fi
 fi
 docker pull "${CONTAINER}"
 if [ "$1" != "" ] ; then
-	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && "${@}""
+	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && bash -c '${@}'"
 else
 	docker run -e LOCAL_USER_ID=`id -u $USER` -it --rm -v $(pwd):/data:Z "${CONTAINER}" bash -c "cd /data && bash"
 fi

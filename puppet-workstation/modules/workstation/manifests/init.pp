@@ -26,7 +26,6 @@ class workstation() {
 	]
 	$nix_packages = [
 		"dwm",
-		"kleopatra",
 		"dunst",
 		"feh",
 		"autoconf",
@@ -55,6 +54,9 @@ class workstation() {
 		"htop",
 		"screen",
 		"tmux",
+		"blueman",
+		"volumeicon",
+		"kleopatra"
 	]
 	case downcase($osfamily) {
 		"windows" : {
