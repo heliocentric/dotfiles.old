@@ -155,8 +155,8 @@ exec --no-startup-id "feh --bg-scale /home/$USER/wallpapers/wallpaper"
 exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/$USER/.i3/workspace-1.json'"
 exec --no-startup-id "xrandr --output HDMI1 --auto --right-of DP1"
 exec --no-startup-id "pulseaudio"
-exec xrandr --dpi 141
-#exec --no-startup-id "scaledisplay"
+#exec xrandr --dpi 141
+exec --no-startup-id "scaledisplay"
 exec --no-startup-id "blueman-applet"
 exec --no-startup-id "volumeicon"
 exec --no-startup-id "kleopatra --daemon"
