@@ -63,3 +63,4 @@ github/heliocentric/pupmod-simp-ssh|github/simp/pupmod-simp-ssh|onyxpoint
 gitlab/onyxpoint/internal-control-repo||onyxpoint
 github/heliocentric/pupmod-simp-mcollective|github/simp/pupmod-simp-mcollective|onyxpoint
 github/heliocentric/rubygem-simp-cli|github/simp/rubygem-simp-cli|onyxpoint
+gitlab/onyxpoint/sandbox/libkv-test-control-repo||onyxpoint
