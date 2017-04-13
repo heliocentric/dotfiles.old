@@ -71,3 +71,6 @@ export VAGRANT_DEFAULT_PROVIDER=virtualbox
 ysync
 HOSTNAME="$(hostname)"
 PROMPT_COMMAND='printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
