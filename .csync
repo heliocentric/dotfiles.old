@@ -66,4 +66,5 @@ github/heliocentric/rubygem-simp-cli|github/simp/rubygem-simp-cli|onyxpoint
 gitlab/onyxpoint/sandbox/libkv-test-control-repo||onyxpoint
 gitlab/onyxpoint/hiera_tools||onyxpoint
 gitlab/onyxpoint/area51/build||onyxpoint
-github/baltimore-puppet-users-group/hierav5|onyxpoint
+github/baltimore-puppet-users-group/hierav5||onyxpoint
+gitlab/onyxpoint/sandbox/simp-pe-control-repo||onyxpoint
