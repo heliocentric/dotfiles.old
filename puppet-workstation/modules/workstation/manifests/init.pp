@@ -95,11 +95,25 @@ class workstation() {
 				"gimp",
 				"docker",
 				"vim-enhanced",
+				"ruby-devel",
+				"libffi-devel",
+				"python2-sphinx",
+				"PyYAML",
+				"redhat-rpm-config",
+				"zlib-devel",
+				"gcc-c++",
+				"libjpeg-devel",
+				"python-devel",
 			]
 			package { 'lsb': }
 			package { 'libXScreenSaver': }
 			package { "google-chrome":
 				source   => 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm',
+				provider => 'rpm',
+			}
+			$url = "http://download.virtualbox.org/virtualbox/5.1.20/VirtualBox-5.1-5.1.20_114628_fedora25-1.x86_64.rpm"
+			package { "Virtualbox":
+				source   => $url,
 				provider => 'rpm',
 			}
 			$packages = $global_packages + $nix_packages + $rhel_packages
