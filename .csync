@@ -47,7 +47,7 @@ github/heliocentric/pupmod-simp-simp_options|github/simp/pupmod-simp-simp_option
 github/heliocentric/beaker|github/trevor-vaughan/beaker|onyxpoint
 github/heliocentric/rspec-puppet|github/rodjek/rspec-puppet|onyxpoint
 github/heliocentric/pupmod-simp-simplib|github/simp/pupmod-simp-simplib|onyxpoint
-github/heliocentric/pupmod-simp-libkv||onyxpoint
+github/heliocentric/pupmod-simp-libkv|github/simp/pupmod-simp-libkv|onyxpoint
 github/heliocentric/pupmod-simp-libvirt|github/simp/pupmod-simp-libvirt|onyxpoint
 github/heliocentric/puppetlabs-concat|github/simp/puppetlabs-concat|onyxpoint
 github/heliocentric/puppet-groupmembership|github/xaque208/puppet-groupmembership|onyxpoint
@@ -68,3 +68,4 @@ gitlab/onyxpoint/hiera_tools||onyxpoint
 gitlab/onyxpoint/area51/build||onyxpoint
 github/baltimore-puppet-users-group/hierav5||onyxpoint
 gitlab/onyxpoint/sandbox/simp-pe-control-repo||onyxpoint
+github/simp/pupmod-simp-compliance_markup||onyxpoint
