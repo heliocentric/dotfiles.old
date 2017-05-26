@@ -56,8 +56,8 @@ github/heliocentric/simp-doc|github/simp/simp-doc|onyxpoint
 github/heliocentric/pupmod-mock-puppet_enterprise|github/simp/pupmod-mock-puppet_enterprise|onyxpoint
 github/fossfeb/fossfeb.github.io||onyxpoint
 github/heliocentric/pupmod-simp-pam|github/simp/pupmod-simp-pam|onyxpoint
-github/simp/simp-metadata||onyxpoint
-github/simp/rubygem-simp-metadata||onyxpoint
+github/heliocentric/simp-metadata|github/simp/simp-metadata|onyxpoint
+github/heliocentric/rubygem-simp-metadata|github/simp/rubygem-simp-metadata|onyxpoint
 bitbucket/heliocentric99/jrogue||personal
 bitbucket/heliocentric99/horus||personal
 github/heliocentric/pupmod-simp-ssh|github/simp/pupmod-simp-ssh|onyxpoint
@@ -72,3 +72,4 @@ gitlab/onyxpoint/sandbox/simp-pe-control-repo||onyxpoint
 github/simp/pupmod-simp-compliance_markup||onyxpoint
 github/simp/simp-environment-skeleton||onyxpoint
 github/simp/pupmod-simp-pki||onyxpoint
+github/heliocentric/pupmod-simp-krb5|github/simp/krb5|onyxpoint
