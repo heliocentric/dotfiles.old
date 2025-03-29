@@ -124,3 +124,4 @@ export GPG_TTY=$(tty)
 KEYGRIP="$(gpg -K --with-keygrip | grep Keygrip | head -n 1 | awk '{ print $3 }')"
 echo ${KEYGRIP} >~/.gnupg/sshcontrol
 gpg-connect-agent updatestartuptty keyattr ${KEYGRIP} Use-for-ssh: true /bye >/dev/null
+export EDITOR=nano
